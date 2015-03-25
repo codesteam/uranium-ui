@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+@import "bootstrap";
+
+html{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+.mainheader{
+	background-color: #2c3e50;
+	color: #ccc;
+}
+.editorheader{
+	background: url("https://a-v2.sndcdn.com/assets/images/header/header-bg-d50908.png");
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.editorheader a:hover{
+	background-color: rgb(240,239,136);
+
+}
+header{
+	margin: 0px;
+	padding: 0px;
+}
+h1{
+	padding: 20px;
+	text-align: center;
+}
+header p{
+	padding: 20px;
+	text-align: center;
+}
+
+header .localmenu{
+	margin: 20px;
+	float: right;
+}
+main{
+	margin: 50px;
+	padding: 0px;
+}
+#paths{
+	float: left;
+	width: 47%;
+}
+#models{
+	float: right;
+	width: 47%;
+}
+
+.model{
+	margin: 10px;
+}
+.col1{
+	color: #2818B1;
+}
+
+.col2{
+	color: #48DD00;
+	padding-left: 10px;
+}
