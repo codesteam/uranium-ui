@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 html{
@@ -30,7 +30,7 @@ body{
 	color: #ccc;
 }
 .editorheader{
-	background: url("https://a-v2.sndcdn.com/assets/images/header/header-bg-d50908.png");
+	/*background: url("https://a-v2.sndcdn.com/assets/images/header/header-bg-d50908.png");*/
 	padding-left: 10px;
 	padding-right: 10px;
 }
