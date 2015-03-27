@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-  get 'editor/index'
+  get 'doc' => 'site#doc',  as: :site_doc
 
-  root 'welcome#index'
+  root 'site#index'
 end

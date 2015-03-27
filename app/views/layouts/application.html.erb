@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Helper</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>RESTful API documentor</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
+    <%= yield %>
 
-<%= yield %>
-
+    <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-7">
+                <h3 class="footer-title">RESTful API documentor</h3>
+                <p>Do you like this freebie? Want to get more stuff like this?<br>
+                    For us on GitHub.<br>
+                    Go to: <a href="https://github.com/codesteam/" target="_blank">github.com/codesteam/</a>
+                </p>
+            </div>
+            <div class="col-xs-5">
+                <div class="footer-banner">
+                    <h3 class="footer-title">Get Flat UI Pro</h3>
+                    <ul>
+                        <li>Tons of Basic and Custom UI Elements</li>
+                        <li>A Lot of Useful Samples</li>
+                        <li>More Vector Icons and Glyphs</li>
+                        <li>Pro Color Swatches</li>
+                        <li>Bootstrap Based HTML/CSS/JS Layout</li>
+                    </ul>
+                    Go to: <a href="https://github.com/codesteam/" target="_blank">github.com/codesteam/</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
