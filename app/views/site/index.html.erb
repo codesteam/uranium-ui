@@ -3,11 +3,11 @@
         <%= image_tag "main_logo.png" %>
         <h1>RESTful API Documentor</h1>
         <br/>
-        <a class="btn btn-danger btn-lg" href="editor/index" role="button">Try it now!</a>
+        <%= link_to 'Try it now!', :site_doc, class: 'btn btn-danger btn-lg' %>
         &nbsp;
         &nbsp;
         &nbsp;
-        <a class="btn btn-success btn-lg" href="editor/index" role="button">Read docs</a></p>
+        <%= link_to 'Read docs', :site_doc, class: 'btn btn-success btn-lg' %>
     </div>
 </header>
 <div class="container">
@@ -57,10 +57,4 @@
             </p>
         </div>
     </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
 </div>
