@@ -7,18 +7,17 @@ initEditor = function() {
     editor.setPrintMarginColumn(1000);
 };
 
-decay = function() {
+$(document).on('page:load', initEditor);
+$(document).ready(initEditor);
+
+$(document).on('click', '#decay', function() {
 	$.ajax({
 		type: 'post',
 		url: '/decay',
 		dataType: 'json',
 		data: {template: ace.edit("editor").getSession().getValue()},
-		success: function(data) {
-			
+		success: function(response) {
+			$("#decay_result").html(response.data);
 		}
 	});
-}
-
-$(document).on('page:load', initEditor);
-$(document).ready(initEditor);
-$(document).on('click', '#decay', decay);
+});

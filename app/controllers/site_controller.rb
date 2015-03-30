@@ -7,15 +7,15 @@ class SiteController < ApplicationController
 
   def decay
     begin
-      raise "invalid template" if !request.post? || params[:template].nil?
-      result = Uranium::Core.new(params[:template]).decay false
+      raise "Invalid template" if !request.post? || params[:template].empty?
+      result = Uranium::Core.new(params[:template]).decay(false)
     rescue Exception => e
       result = e.message
     end
 
     respond_to do |format|
       format.html { render nothing: true }
-      format.json { render :json => result }
+      format.json { render :json => {'data' => result} }
     end
   end
 end
