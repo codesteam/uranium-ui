@@ -13,7 +13,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'ace-rails-ap'
-gem 'documentor', :git => 'https://github.com/codesteam/api-doc'
+gem 'uranium', :git => 'https://github.com/codesteam/uranium'
 
 group :development, :test do
   gem 'byebug'
