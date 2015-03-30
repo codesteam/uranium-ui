@@ -20,7 +20,13 @@
 .jumbotron-inverse {background-color:#2C3E50;}
 .jumbotron-inverse h1 {color: white;}
 footer {margin-top:50px;}
-.api-editor {min-height: 500px;border:none !important;}
+.api-editor {min-height: 600px; height: 100%; border:none !important;}
+
+#decay_result .container {width: auto;}
+#decay_result h1, #decay_result .h1 {font-size: 30px;}
+#decay_result h4, #decay_result .h4 {font-size: 20px;}
+#decay_result p {font-size: 16px;}
+#decay_result .page-header {margin-top: 0;}
 
 .ribbon {
   background-color: #a00;

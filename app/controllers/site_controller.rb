@@ -10,7 +10,7 @@ class SiteController < ApplicationController
       raise "Invalid template" if !request.post? || params[:template].empty?
       result = Uranium::Core.new(params[:template]).decay(false)
     rescue Exception => e
-      result = e.message
+      result = "Render error: " + e.message
     end
 
     respond_to do |format|

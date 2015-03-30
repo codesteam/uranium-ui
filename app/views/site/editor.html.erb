@@ -23,52 +23,12 @@
             <hr/>
         </div>
         <div class="col-md-6">
-<pre id="editor" class="api-editor">
-documentor: '1.0'
-info:
-   title: Rest API
-   description: API description
-   version: 'Version of API'
-host: example.com
-schemes:
-   - https
-   - http
-produces:
-   - json
-   - yaml
-paths:
-   /first:
-         query: get
-         summary: blablabla
-         description: lalala
-         parameters:
-            - name: foo
-              description: sdf
-              required: asdf
-              type: gfd
-            - name: bar
-              description: dfg
-              required: gfd
-              type: afg
-   /second:
-         query: get
-         summary: blablabla
-         description: lalala
-         parameters:
-            - name: foo
-              description: sdf
-              required: asdf
-              type: gfd
-            - name: bar
-              description: dfg
-              required: gfd
-              type: afg
-</pre>
+          <pre id="editor" class="api-editor"><%= render template: "templates/example_doc.html" %></pre>
         </div>
         <div class="col-md-6">
-            <p>Result DOC HTML will be there</p>
+            <h4>Result DOC HTML will be there</h4>
             <div id="decay_result"></div>
         </div>
-        <a class="btn btn-success btn-lg" id="decay">Generate</a>
     </div>
+     <p class="text-center"><a class="btn btn-success btn-lg" id="decay">Generate</a></p>
 </div>
