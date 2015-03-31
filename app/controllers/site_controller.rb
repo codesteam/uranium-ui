@@ -14,7 +14,6 @@ class SiteController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render nothing: true }
       format.json { render :json => {'data' => result} }
     end
   end
