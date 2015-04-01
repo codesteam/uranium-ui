@@ -23,10 +23,10 @@
             <hr/>
         </div>
         <div class="col-md-6">
-          <pre class="api-editor" doc-editor="" editor-data="<%= render template: 'templates/example_doc.html' %>"></pre>
+          <pre class="api-editor" data-ng-model="editor" doc-editor="" editor-data="<%= render template: 'templates/example_doc.html' %>"></pre>
         </div>
         <div class="col-md-6">
-            <div id="decay_result"></div>
+            <div id="decay_result" ng-bind-html="template"></div>
         </div>
     </div>
 </div>

@@ -6,16 +6,18 @@ angular.module('Uranium').directive("docEditor", ['$timeout', function ($timeout
 
     return {
         restrict: 'A',
+        require: '?ngModel',
         scope: {
             editorData: '@',
         },
-        link: function (scope, element, attrs) {
+        link: function (scope, element, attrs, ngModel) {
             var editor = ace.edit(element[0]);
             editor.setFontSize("16px");
             editor.setTheme("ace/theme/monokai");
             editor.getSession().setMode("ace/mode/yaml");
             editor.setShowPrintMargin(false);
             editor.setValue(scope.editorData, -1);
+            ngModel.$setViewValue(scope.editorData);
 
             // // data binding to ngModel
             // ngModel.$render = function () {
@@ -23,16 +25,16 @@ angular.module('Uranium').directive("docEditor", ['$timeout', function ($timeout
             //     resizeEditor(editor, elem);
             // };
 
-            // editor.on('change', function () {
-            //     $timeout(function () {
-            //         scope.$apply(function () {
-            //             var value = editor.getValue();
-            //             ngModel.$setViewValue(value);
-            //         });
-            //     });
+            editor.on('change', function () {
+                $timeout(function () {
+                    scope.$apply(function () {
+                        var value = editor.getValue();
+                        ngModel.$setViewValue(value);
+                    });
+                });
 
-            //     resizeEditor(editor, elem);
-            // });
+                resizeEditor(editor, element);
+            });
         }
     };
 }]);
