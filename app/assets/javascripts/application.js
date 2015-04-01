@@ -17,4 +17,5 @@
 //= require ace/ace
 //= require ace/worker-html
 //= require unstable/angular
+//= require ./app
 //= require_tree .
