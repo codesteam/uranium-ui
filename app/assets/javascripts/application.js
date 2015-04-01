@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap-sprockets
 //= require ace/ace
 //= require ace/worker-html
+//= require unstable/angular
+//= require_tree .

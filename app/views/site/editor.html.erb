@@ -16,18 +16,17 @@
     </div>
 </header>
 
-<div class="container">
+<div class="container" ng-controller="DashboardEditorCtrl">
     <div class="row">
         <div class="col-md-12">
             <h3>Uranium editor</h2>
             <hr/>
         </div>
         <div class="col-md-6">
-          <pre id="editor" class="api-editor"><%= render template: "templates/example_doc.html" %></pre>
+          <pre class="api-editor" doc-editor="" editor-data="<%= render template: 'templates/example_doc.html' %>"></pre>
         </div>
         <div class="col-md-6">
             <div id="decay_result"></div>
         </div>
     </div>
-     <p class="text-center"><a class="btn btn-success btn-lg" id="decay">Generate</a></p>
 </div>
