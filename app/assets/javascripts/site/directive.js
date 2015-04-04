@@ -31,3 +31,25 @@ angular.module('Uranium').directive("docEditor", ['$timeout', function ($timeout
         }
     };
 }]);
+
+angular.module('Uranium').directive("editorDocExample", function () {
+    return {
+        restrict: 'A',
+        scope: {
+            editorLanguage : '@',
+            editorData     : '@',
+        },
+        link: function (scope, element) {
+            language = scope.editorLanguage || 'text';
+            editor = ace.edit(element[0]);
+            editor.setFontSize("16px");
+            editor.setTheme("ace/theme/monokai");
+            editor.getSession().setMode("ace/mode/" + language);
+            editor.setShowPrintMargin(false);
+            editor.setReadOnly(true);
+            editor.setValue(scope.editorData, -1);
+            editor.setOptions({maxLines: Infinity});
+            editor.resize();
+        }
+    };
+});
