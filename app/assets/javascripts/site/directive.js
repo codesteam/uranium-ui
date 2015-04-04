@@ -1,6 +1,6 @@
 angular.module('Uranium').directive("docEditor", ['$timeout', function ($timeout) {
     var resizeEditor = function (editor, element) {
-        element.css({"min-height": Math.max($("#decay_result").height(), 1100)});
+        element.css({"min-height": Math.max($("#decay_result").height(), 1417)});
         editor.resize();
     };
 
@@ -22,8 +22,7 @@ angular.module('Uranium').directive("docEditor", ['$timeout', function ($timeout
             editor.on('change', function () {
                 $timeout(function () {
                     scope.$apply(function () {
-                        var value = editor.getValue();
-                        ngModel.$setViewValue(value);
+                        ngModel.$setViewValue(editor.getValue());
                     });
                 });
 

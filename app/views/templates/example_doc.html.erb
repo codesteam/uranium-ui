@@ -1,7 +1,14 @@
 documentor: '1.0'
 info:
    title: Rest API
-   description: API description
+   description: [
+      <strong>API description</strong><br/>
+      Lorem Ipsum is simply dummy text of the printing
+      and typesetting industry. Lorem Ipsum has been the
+      industry's standard dummy text ever since the 1500s
+      when an unknown printer took a galley of type and
+      scrambled it to make a type specimen book.
+   ]
    version: 'Version of API'
 host: example.com
 schemes:
@@ -11,29 +18,49 @@ produces:
    - json
    - yaml
 paths:
-   /first:
-         query: get
-         summary: blablabla
-         description: lalala
+   /action/first:
+         query: GET
+         summary: Lorem Ipsum is simply dummy
+         description: [
+            Lorem Ipsum is simply dummy text of the printing
+            and typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since
+            the 1500s, when an unknown printer took a galley
+            of type and scrambled it to make a type specimen
+            book.
+         ]
          parameters:
             - name: foo
-              description: sdf
-              required: asdf
-              type: gfd
+              description: Lorem Ipsum is simply.
+              required: yes
+              type: string
             - name: bar
-              description: dfg
-              required: gfd
-              type: afg
-   /second:
-         query: get
-         summary: blablabla
-         description: lalala
+              description: [
+                Lorem Ipsum is simply dummy text of the
+                printing and typesetting industry.
+              ]
+              required: no
+              type: int
+   /action/second:
+         query: POST
+         summary: [
+            Lorem Ipsum is simply dummy text of the printing
+            and typesetting industry.
+         ]
+         description: [
+            Lorem Ipsum is simply dummy text of the printing
+            and typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since
+            the 1500s, when an unknown printer took a galley
+            of type and scrambled it to make a type specimen
+            book.
+         ]
          parameters:
             - name: foo
-              description: sdf
-              required: asdf
-              type: gfd
+              description: [Lorem Ipsum is simply]
+              required: yes
+              type: int
             - name: bar
-              description: dfg
-              required: gfd
-              type: afg
+              description: [Lorem Ipsum is simply]
+              required: yes
+              type: int
