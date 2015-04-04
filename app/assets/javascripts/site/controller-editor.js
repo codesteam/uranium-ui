@@ -19,11 +19,12 @@ angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', 
              data: {template: $scope.editor.text},
              success: function(response) {
                 $timeout(function () {
+                    $scope.editor.template = null;
+                    $scope.editor.message  = null;
                     if (!response.error) {
                         $scope.editor.template = $sce.trustAsHtml(response.data);
                     }
                     else {
-                        $scope.editor.template = null;
                         $scope.editor.message = response.data;
                     }
                 });
