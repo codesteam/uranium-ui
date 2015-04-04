@@ -6,18 +6,23 @@ angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', 
         'message'  : null,
     };
 
+    $scope.render_query = null;
+
     $scope.$watch("editor.text", function() {
         $scope.update_template();
     });
 
     $scope.update_template = function()
     {
-        $.ajax({
-             type: 'post',
-             url: '/decay',
-             dataType: 'json',
-             data: {template: $scope.editor.text},
-             success: function(response) {
+        if ($scope.render_query !== null) {
+           $scope.render_query.abort();
+        }
+        $scope.render_query = $.ajax({
+            type: 'post',
+            url: '/decay',
+            dataType: 'json',
+            data: {template: $scope.editor.text},
+            success: function(response) {
                 $timeout(function () {
                     $scope.editor.template = null;
                     $scope.editor.message  = null;
@@ -27,8 +32,11 @@ angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', 
                     else {
                         $scope.editor.message = response.data;
                     }
-                });
-             }
+               });
+            },
+            complete: function() {
+                $scope.render_query = null;
+            }
          });
     };
 

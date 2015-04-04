@@ -22,6 +22,12 @@
 footer {margin-top:50px;}
 .api-editor {min-height: 1417px; height: 100%; border:none !important;}
 
+#page-content button,
+#page-content input,
+#page-content optgroup,
+#page-content select,
+#page-content textarea {color: #333333;}
+
 #decay_result .container {width: auto;}
 #decay_result h1, #decay_result .h1 {font-size: 30px;}
 #decay_result h4, #decay_result .h4 {font-size: 20px;}
