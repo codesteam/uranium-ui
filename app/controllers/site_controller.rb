@@ -14,7 +14,7 @@ class SiteController < ApplicationController
     end
 
     respond_to do |format|
-      format.json { render :json => {'data' => result} }
+      format.json { render :json => {'data' => result, 'error' => !e.nil?} }
     end
   end
 end
