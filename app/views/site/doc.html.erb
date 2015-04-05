@@ -25,7 +25,7 @@
             <h3>Usage</h3>
             <h4>Run rake task to generate docs</h4>
             <hr/>
-            <p>Make sure you have <%= link_to 'rake', 'http://rake.rubyforge.org/' %> installed.</p>
+            <p>Make sure you have <%= link_to 'rake', 'http://rake.rubyforge.org/', target: "_blank" %> installed.</p>
             <pre>rake uranium:decay['path-to-input.yaml','path-to-output.html']</pre>
 
             <h4>Generate docs from controller</h4>
@@ -35,14 +35,16 @@
             <h6>Configuration options</h6>
             <p>The following table shows all the current configuration options and their defaults. The default will be used if you don't supply your own value.</p>
 
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
+                    <th>Method</th>
                     <th>Option</th>
                     <th>Description</th>
                     <th>Default</th>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>decay</td>
                         <td>use_layout</td>
                         <td>Parameter is used to enable \ disable the layout design of API methods</td>
                         <td>true</td>
@@ -57,11 +59,12 @@
                 <li>Json</li>
             </ol>
 
-            <h6>Yaml template example</h6>
-            <pre style="min-height: 250px;" editor-doc-example="" class="container" editor-language="yaml" editor-data="<%= render template: 'doc/template_yaml.html' %>"></pre>
+            <h6>Yaml format example</h6>
+            <pre editor-doc-example="" class="container" editor-language="yaml" editor-data="<%= render template: 'doc/template_yaml.html' %>"></pre>
 
-            <h6>Json template example</h6>
-            <pre style="min-height: 250px;" editor-doc-example="" class="container" editor-language="json" editor-data='<%= render template: 'doc/template_json.html' %>'></pre>
+            <h6>Json format example</h6>
+            <pre editor-doc-example="" class="container" editor-language="json" editor-data='<%= render template: 'doc/template_json.html' %>'></pre>
+
         </div>
     </div>
 </div>
