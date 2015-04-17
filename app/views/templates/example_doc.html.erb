@@ -1,66 +1,34 @@
 documentor: '1.0'
 info:
-   title: Rest API
-   description: [
-      <strong>API description</strong><br/>
-      Lorem Ipsum is simply dummy text of the printing
-      and typesetting industry. Lorem Ipsum has been the
-      industry's standard dummy text ever since the 1500s
-      when an unknown printer took a galley of type and
-      scrambled it to make a type specimen book.
-   ]
-   version: 'Version of API'
-host: example.com
-schemes:
-   - https
-   - http
-produces:
-   - json
-   - yaml
+  title: Dummy API
+  description:
+    This is example documentation for some dummy 
+    photos API.
+  version: 0.1 beta
 paths:
-   /action/first:
-         query: GET
-         summary: Lorem Ipsum is simply dummy
-         description: [
-            Lorem Ipsum is simply dummy text of the printing
-            and typesetting industry. Lorem Ipsum has been
-            the industry's standard dummy text ever since
-            the 1500s, when an unknown printer took a galley
-            of type and scrambled it to make a type specimen
-            book.
-         ]
-         parameters:
-            - name: foo
-              description: Lorem Ipsum is simply.
-              required: yes
-              type: string
-            - name: bar
-              description: [
-                Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry.
-              ]
-              required: no
-              type: int
-   /action/second:
-         query: POST
-         summary: [
-            Lorem Ipsum is simply dummy text of the printing
-            and typesetting industry.
-         ]
-         description: [
-            Lorem Ipsum is simply dummy text of the printing
-            and typesetting industry. Lorem Ipsum has been
-            the industry's standard dummy text ever since
-            the 1500s, when an unknown printer took a galley
-            of type and scrambled it to make a type specimen
-            book.
-         ]
-         parameters:
-            - name: foo
-              description: [Lorem Ipsum is simply]
-              required: yes
-              type: int
-            - name: bar
-              description: [Lorem Ipsum is simply]
-              required: yes
-              type: int
+  /photos:
+    query: GET
+    summary: Return photos array
+    description: Return photos array.
+    parameters:
+      - name: page
+        description: Current page number
+        required: no
+        type: integer
+      - name: page_size
+        description: Listing page size
+        required: no
+        type: integer
+  /photos/new:
+    query: POST
+    summary: Upload new photo.
+    description: Upload new photo.
+    parameters:
+      - name: photo
+        description: Serialized photo content
+        required: yes
+        type: string
+      - name: photo_name
+        description: Photo original file name
+        required: yes
+        type: string
