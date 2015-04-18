@@ -25,10 +25,14 @@ paths:
     description: Upload new photo.
     parameters:
       - name: photo
-        description: Serialized photo content
+        description: Common photo info
         required: yes
-        type: string
-      - name: photo_name
-        description: Photo original file name
-        required: yes
-        type: string
+        type: array_of_photo
+definitions:
+  photo:
+    name: string
+    extension: string
+    demensions: photo_demensions
+  photo_demensions:
+    width: integer
+    heigth: integer
