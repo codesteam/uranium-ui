@@ -1,4 +1,4 @@
-<header class="navbar navbar-inverse navbar-static-top bs-docs-nav" id="top" role="banner">
+<header class="navbar navbar-inverse navbar-static-top bs-docs-nav" role="banner">
     <div class="container">
         <nav class="collapse navbar-collapse bs-navbar-collapse">
             <ul class="nav navbar-nav">
@@ -26,7 +26,7 @@
           <pre class="api-editor" data-ng-model="editor.text" doc-editor="" editor-data="<%= render template: 'templates/example_doc.html' %>"></pre>
         </div>
         <div class="col-md-6">
-            <div id="decay_result" ng-bind-html="editor.template"></div>
+            <div class="decay_result" ng-bind-html="editor.template"></div>
             <div ng-if="editor.message.length" role="alert" class="alert alert-danger fade in">
               <h4>Error</h4>
               <p>{{editor.message}}</p>

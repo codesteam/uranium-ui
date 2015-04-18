@@ -12,60 +12,20 @@
  *
  *= require_tree .
  *= require_self
- *= require flat-ui/flat-ui
  */
 
 @import 'bootstrap';
 
 .jumbotron-inverse {background-color:#2C3E50;}
 .jumbotron-inverse h1 {color: white;}
+.navbar-inverse {background-color:#2c3e50;border:none;}
+.navbar-inverse .navbar-nav > li > a {color:white;}
 footer {margin-top:50px;}
 .api-editor {min-height: 1417px; height: 100%; border:none !important;}
 
-#page-content .ace_editor {border: 0}
+.ribbon {background-color: #a00;overflow: hidden;white-space: nowrap;position: absolute;left: -50px;top: 40px;-webkit-transform: rotate(-45deg);-moz-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);transform: rotate(-45deg);-webkit-box-shadow: 0 0 10px #888;-moz-box-shadow: 0 0 10px #888;box-shadow: 0 0 10px #888;}
+.ribbon a {border: 1px solid #faa;color: #fff;display: block;font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;margin: 1px 0;padding: 10px 50px;text-align: center;text-decoration: none;text-shadow: 0 0 5px #444;}
 
-#page-content button,
-#page-content input,
-#page-content optgroup,
-#page-content select,
-#page-content textarea {color: #333333;}
-
-#decay_result .container {width: auto;}
-#decay_result h1, #decay_result .h1 {font-size: 30px;}
-#decay_result h4, #decay_result .h4 {font-size: 20px;}
-#decay_result p {font-size: 16px;}
-#decay_result .page-header {margin-top: 0;}
-
-.ribbon {
-  background-color: #a00;
-  overflow: hidden;
-  white-space: nowrap;
-  /* top left corner */
-  position: absolute;
-  left: -50px;
-  top: 40px;
-  /* 45 deg ccw rotation */
-  -webkit-transform: rotate(-45deg);
-     -moz-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-       -o-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  /* shadow */
-  -webkit-box-shadow: 0 0 10px #888;
-     -moz-box-shadow: 0 0 10px #888;
-          box-shadow: 0 0 10px #888;
-}
-.ribbon a {
-  border: 1px solid #faa;
-  color: #fff;
-  display: block;
-  font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  margin: 1px 0;
-  padding: 10px 50px;
-  text-align: center;
-  text-decoration: none;
-  /* shadow */
-  text-shadow: 0 0 5px #444;
-}
-
-#decay_result pre {border: none !important; background-color:#e7e9ec !important; padding:0px 5px 0px 5px !important;}
+.decay_result .container {width: auto;}
+.decay_result .page-header {margin-top: 0;}
+.decay_result pre {border: none !important; background-color:#e7e9ec !important; padding:0px 5px 0px 5px !important;}
