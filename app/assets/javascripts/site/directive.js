@@ -17,6 +17,8 @@ angular.module('Uranium').directive("docEditor", ['$timeout', function ($timeout
             editor.getSession().setMode("ace/mode/yaml");
             editor.setShowPrintMargin(false);
             editor.setValue(scope.editorData, -1);
+            editor.session.setUseWrapMode(true);
+            editor.session.setWrapLimitRange(60);
             ngModel.$setViewValue(scope.editorData);
 
             editor.on('change', function () {
