@@ -1,35 +1,40 @@
-<header class="navbar navbar-inverse navbar-static-top bs-docs-nav" role="banner">
-    <div class="container">
-        <nav class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <%= link_to 'Home', :root %>
-                </li>
-                <li>
-                    <%= link_to 'Documentation', :site_doc %>
-                </li>
-                <li class="active">
-                    <%= link_to 'Editor', :site_editor %>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div ng-controller="DashboardEditorCtrl">
+    <header class="navbar navbar-inverse navbar-static-top bs-docs-nav" role="banner">
+        <div class="container">
+            <nav class="collapse navbar-collapse bs-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <%= link_to 'Home', :root %>
+                    </li>
+                    <li>
+                        <%= link_to 'Documentation', :site_doc %>
+                    </li>
+                    <li class="active dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Editor&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a ng-click="show_settings()">Settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<div class="container" ng-controller="DashboardEditorCtrl">
-    <div class="row">
-        <div class="col-md-12">
-            <h3>Uranium editor</h2>
-            <hr/>
-        </div>
-        <div class="col-md-6">
-          <pre class="api-editor" data-ng-model="editor.text" doc-editor="" editor-data="<%= render template: 'templates/example_doc.html' %>"></pre>
-        </div>
-        <div class="col-md-6">
-            <div class="decay_result" ng-bind-html="editor.template"></div>
-            <div ng-if="editor.message.length" role="alert" class="alert alert-danger fade in">
-              <h4>Error</h4>
-              <p>{{editor.message}}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Uranium editor</h2>
+                <hr/>
+            </div>
+            <div class="col-md-6">
+              <pre class="api-editor" data-ng-model="editor" doc-editor="" editor-data="<%= render template: 'templates/example_doc.html' %>"></pre>
+            </div>
+            <div class="col-md-6">
+                <div class="decay_result" ng-bind-html="template.source"></div>
+                <div ng-if="template.message.length" role="alert" class="alert alert-danger fade in">
+                  <h4>Error</h4>
+                  <p>{{template.message}}</p>
+                </div>
             </div>
         </div>
     </div>

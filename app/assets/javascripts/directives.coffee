@@ -11,11 +11,11 @@ angular.module('Uranium').directive 'docEditor', [ '$timeout', ($timeout) ->
     editor.setValue scope.editorData, -1
     editor.session.setUseWrapMode true
     editor.session.setWrapLimitRange 60
-    ngModel.$setViewValue scope.editorData
+    ngModel.$setViewValue {text: scope.editorData, object: editor}
     editor.on 'change', ->
       $timeout ->
         scope.$apply ->
-          ngModel.$setViewValue editor.getValue()
+          ngModel.$setViewValue {text: editor.getValue(), object: editor}
       element.css 'min-height': Math.max($('#decay_result').height(), 1417)
       editor.resize()
 ]

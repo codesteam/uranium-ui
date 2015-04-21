@@ -1,9 +1,13 @@
 angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', '$sce', '$timeout', function($scope, $http, $sce, $timeout) {
 
-    $scope.editor   = {
-        'text'     : null,
-        'template' : null,
-        'message'  : null,
+    $scope.editor = {
+        'text'   : null,
+        'object' : null,
+    };
+
+    $scope.template = {
+        'source'  : null,
+        'message' : null,
     };
 
     $scope.render_query = null;
@@ -12,8 +16,7 @@ angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', 
         $scope.update_template();
     });
 
-    $scope.update_template = function()
-    {
+    $scope.update_template = function() {
         if ($scope.render_query !== null) {
            $scope.render_query.abort();
         }
@@ -24,13 +27,13 @@ angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', 
             data: {template: $scope.editor.text},
             success: function(response) {
                 $timeout(function () {
-                    $scope.editor.template = null;
-                    $scope.editor.message  = null;
+                    $scope.template.source = null;
+                    $scope.template.message  = null;
                     if (!response.error) {
-                        $scope.editor.template = $sce.trustAsHtml(response.data);
+                        $scope.template.source = $sce.trustAsHtml(response.data);
                     }
                     else {
-                        $scope.editor.message = response.data;
+                        $scope.template.message = response.data;
                     }
                });
             },
@@ -39,5 +42,9 @@ angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', 
             }
          });
     };
+
+    $scope.show_settings = function() {
+        $scope.editor.object.commands.exec("showSettingsMenu", $scope.editor.object);
+    }
 
 }]);
