@@ -17,7 +17,9 @@ role :web, ENV_CONFIG['APP_ROLE_WEB']
 role :app, ENV_CONFIG['APP_ROLE_APP']
 
 after 'deploy:create_symlink' do
-  # TODO: add deploy script here
+  # install all needed gems
+  set :default_shell, 'bash -l'
+  run "( cd #{current_path} ; bundle install)"
 end
 
 after 'deploy:update', 'deploy:cleanup'
