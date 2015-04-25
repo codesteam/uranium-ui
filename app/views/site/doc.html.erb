@@ -1,70 +1,55 @@
-<header class="navbar navbar-inverse navbar-static-top bs-docs-nav" role="banner">
-    <div class="container">
-        <nav class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <%= link_to 'Home', :root %>
-                </li>
-                <li class="active">
-                    <%= link_to 'Documentation', :site_doc %>
-                </li>
-                <li>
-                    <%= link_to 'Editor', :site_editor %>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<%= render 'layouts/menu', active: 'doc' %>
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h3>Uranium documentation</h3>
-            <hr/>
-            <p>Uranium is part of the Uranium project. The Uranium project allows you to visualize your own RESTful services.</p>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Uranium documentation</h3>
+      <hr/>
+      <p>Uranium is part of the Uranium project. The Uranium project allows you to visualize your own RESTful services.</p>
 
-            <h3>Usage</h3>
-            <h4>Run rake task to generate docs</h4>
-            <hr/>
-            <p>Make sure you have <%= link_to 'rake', 'http://rake.rubyforge.org/', target: "_blank" %> installed.</p>
-            <pre>rake uranium:decay['path-to-input.yaml','path-to-output.html']</pre>
+      <h3>Usage</h3>
+      <h4>Run rake task to generate docs</h4>
+      <hr/>
+      <p>Make sure you have <%= link_to 'rake', 'http://rake.rubyforge.org/', target: "_blank" %> installed.</p>
+      <pre>rake uranium:decay['path-to-input.yaml','path-to-output.html']</pre>
 
-            <h4>Generate docs from controller</h4>
+      <h4>Generate docs from controller</h4>
 
-            <pre code-highlight="" class="container" code-language="ruby"><%= render template: 'doc/make.html' %></pre>
+      <pre code-highlight="" class="container" code-language="ruby"><%= render template: 'doc/make.html' %></pre>
 
-            <h6>Configuration options</h6>
-            <p>The following table shows all the current configuration options and their defaults. The default will be used if you don't supply your own value.</p>
+      <h6>Configuration options</h6>
+      <p>The following table shows all the current configuration options and their defaults. The default will be used if you don't supply your own value.</p>
 
-            <table class="table table-striped">
-                <thead>
-                    <th>Method</th>
-                    <th>Option</th>
-                    <th>Description</th>
-                    <th>Default</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>decay</td>
-                        <td>use_layout</td>
-                        <td>Parameter is used to enable \ disable the layout design of API methods</td>
-                        <td>true</td>
-                    </tr>
-                </tbody>
-            </table>
+      <table class="table table-striped">
+        <thead>
+          <th>Method</th>
+          <th>Option</th>
+          <th>Description</th>
+          <th>Default</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>decay</td>
+            <td>use_layout</td>
+            <td>Parameter is used to enable \ disable the layout design of API methods</td>
+            <td>true</td>
+          </tr>
+        </tbody>
+      </table>
 
-            <h4>Input templates</h4>
-            <p>As an input to the generator 2 is acceptable format:</p>
-            <ol>
-                <li>Yaml</li>
-                <li>Json</li>
-            </ol>
+      <h4>Input templates</h4>
+      <p>As an input to the generator 2 is acceptable format:</p>
+      <ol>
+        <li>Yaml</li>
+        <li>Json</li>
+      </ol>
 
-            <h6>Yaml format example</h6>
-            <pre code-highlight="" class="container" code-language="yaml"><%= render template: 'doc/template_yaml.html' %></pre>
+      <h6>Yaml format example</h6>
+      <pre code-highlight="" class="container" code-language="yaml"><%= render template: 'doc/template_yaml.html' %></pre>
 
-            <h6>Json format example</h6>
-            <pre code-highlight="" class="container" code-language="json"><%= render template: 'doc/template_json.html' %></pre>
+      <h6>Json format example</h6>
+      <pre code-highlight="" class="container" code-language="json"><%= render template: 'doc/template_json.html' %></pre>
 
-        </div>
     </div>
+  </div>
 </div>
