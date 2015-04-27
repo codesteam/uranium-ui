@@ -20,7 +20,9 @@ after 'deploy:create_symlink' do
   # install all needed gems
   set :default_shell, 'bash -l'
   run "( cd #{current_path} ; bundle install)"
-  put ENV_CONFIG['APP_ENV_OPTIONS'].to_yaml, "#{current_path}/.env"
+  put "SECRET_KEY_BASE=" + ENV_CONFIG['APP_ENV_OPTIONS']['SECRET_KEY_BASE'], "#{current_path}/.env"
+  run "( cd #{current_path} ; rake assets:precompile)"
+  run "/etc/init.d/unicorn restart uranium"
 end
 
 after 'deploy:update', 'deploy:cleanup'
