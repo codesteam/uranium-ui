@@ -20,6 +20,7 @@ after 'deploy:create_symlink' do
   # install all needed gems
   set :default_shell, 'bash -l'
   run "( cd #{current_path} ; bundle install)"
+  put ENV_CONFIG['APP_ENV_OPTIONS'].to_yaml, "#{current_path}/.env"
 end
 
 after 'deploy:update', 'deploy:cleanup'
