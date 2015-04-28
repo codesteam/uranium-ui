@@ -8,7 +8,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    ace-rails-ap (3.0.2)
     actionmailer (4.2.1)
       actionpack (= 4.2.1)
       actionview (= 4.2.1)
@@ -180,7 +179,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ace-rails-ap
   angularjs-rails
   bootstrap-sass (~> 3.3.3)
   byebug
