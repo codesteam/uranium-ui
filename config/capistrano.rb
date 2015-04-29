@@ -22,6 +22,7 @@ after 'deploy:create_symlink' do
   run "( cd #{current_path} ; bundle install)"
   put "SECRET_KEY_BASE=" + ENV_CONFIG['APP_ENV_OPTIONS']['SECRET_KEY_BASE'], "#{current_path}/.env"
   run "( cd #{current_path} ; rake assets:precompile)"
+  run "cp -a #{current_path}/vendor/assets/javascripts/ace/ #{current_path}/public/assets/ace/"
   run "/etc/init.d/unicorn restart uranium"
 end
 
