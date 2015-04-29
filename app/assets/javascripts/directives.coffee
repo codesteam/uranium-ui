@@ -3,9 +3,11 @@ angular.module('Uranium').directive 'docEditor', [ '$timeout', ($timeout) ->
   require: '?ngModel'
   scope: editorData: '@'
   link: (scope, element, attrs, ngModel) ->
-    ace.config.set("workerPath", window.location.origin + "/assets/ace/")
-    ace.config.set("modePath", window.location.origin + "/assets/ace/")
-    ace.config.set("themePath", window.location.origin + "/assets/ace/")
+    acePath = window.location.origin + "/assets/ace/"
+    ace.config.set("basePath", acePath)
+    ace.config.set("workerPath", acePath)
+    ace.config.set("modePath", acePath)
+    ace.config.set("themePath", acePath)
     editor = ace.edit(element[0])
     editor.setFontSize '16px'
     editor.setTheme 'ace/theme/monokai'
@@ -29,9 +31,11 @@ angular.module('Uranium').directive 'codeHighlight', ->
     codeLanguage: '@'
   link: (scope, element) ->
     code   = element[0].innerHTML
-    ace.config.set("workerPath", window.location.origin + "/assets/ace/")
-    ace.config.set("modePath", window.location.origin + "/assets/ace/")
-    ace.config.set("themePath", window.location.origin + "/assets/ace/")
+    acePath = window.location.origin + "/assets/ace/"
+    ace.config.set("basePath", acePath)
+    ace.config.set("workerPath", acePath)
+    ace.config.set("modePath", acePath)
+    ace.config.set("themePath", acePath)
     editor = ace.edit(element[0])
     editor.setFontSize '16px'
     editor.setTheme 'ace/theme/monokai'
