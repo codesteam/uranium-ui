@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'uranium', :git => 'https://github.com/codesteam/uranium'
 gem 'angularjs-rails'
 gem 'dotenv-rails'
+gem 'angular_rails_csrf'
 
 group :development, :test do
   gem 'byebug'

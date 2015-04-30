@@ -1,4 +1,4 @@
-angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', '$sce', '$timeout', function($scope, $http, $sce, $timeout) {
+angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
 
     $scope.editor = {
         'text'   : null,
@@ -6,45 +6,48 @@ angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', 
     };
 
     $scope.template = {
-        'source'  : null,
-        'message' : null,
+        'source'       : null,
+        'message'      : null,
+        'stack_init'   : false,
+        'default_time' : 1000
     };
 
-    $scope.render_query = null;
+    $scope.init_request_stack = function(time, singlenton) {
+        if ($scope.template.stack_init) {
+            return;
+        }
+        $scope.stack = _.debounce(function() {
+            $scope.$apply(function() { $scope.update_template(); });
+        }, time);
+        $scope.template.stack_init = singlenton || false;
+    };
 
     $scope.$watch("editor.text", function() {
-        $scope.update_template();
+        $scope.stack();
     });
 
     $scope.update_template = function() {
-        if ($scope.render_query !== null) {
-           $scope.render_query.abort();
-        }
-        $scope.render_query = $.ajax({
-            type: 'post',
-            url: '/decay',
-            dataType: 'json',
-            data: {template: $scope.editor.text},
-            success: function(response) {
-                $timeout(function () {
-                    $scope.template.source = null;
-                    $scope.template.message  = null;
-                    if (!response.error) {
-                        $scope.template.source = $sce.trustAsHtml(response.data);
-                    }
-                    else {
-                        $scope.template.message = response.data;
-                    }
-               });
-            },
-            complete: function() {
-                $scope.render_query = null;
+        $http({
+            method : 'POST',
+            url    : 'decay.json',
+            data   : {template: $scope.editor.text},
+        }).success(function(response) {
+            $scope.template.source  = null;
+            $scope.template.message = null;
+            if (!response.error) {
+                $scope.template.source = $sce.trustAsHtml(response.data);
             }
-         });
+            else {
+                $scope.template.message = response.data;
+            }
+        });
+        $scope.init_request_stack($scope.template.default_time, true);
     };
 
     $scope.show_settings = function() {
         $scope.editor.object.commands.exec("showSettingsMenu", $scope.editor.object);
     }
+
+    $scope.init_request_stack(1);
 
 }]);

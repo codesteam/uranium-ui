@@ -5,5 +5,6 @@
 //= require ace/ace
 //= require ace/worker-html
 //= require unstable/angular
+//= require underscore
 //= require ./app
 //= require_tree .
