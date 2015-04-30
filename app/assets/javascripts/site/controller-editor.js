@@ -1,7 +1,7 @@
 angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
 
     $scope.editor = {
-        'text'   : null,
+        'text'   : localStorage.getItem("code"),
         'object' : null,
     };
 
@@ -23,6 +23,7 @@ angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', 
     };
 
     $scope.$watch("editor.text", function() {
+        localStorage.setItem("code", $scope.editor.text)
         $scope.stack();
     });
 
@@ -46,6 +47,11 @@ angular.module('Uranium').controller('DashboardEditorCtrl', ['$scope', '$http', 
 
     $scope.show_settings = function() {
         $scope.editor.object.commands.exec("showSettingsMenu", $scope.editor.object);
+    }
+
+    $scope.reset_code = function() {
+        localStorage.removeItem("code");
+        window.location.reload();
     }
 
     $scope.init_request_stack(1);

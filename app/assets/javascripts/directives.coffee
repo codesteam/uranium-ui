@@ -1,7 +1,9 @@
 angular.module('Uranium').directive 'docEditor', [ '$timeout', ($timeout) ->
   restrict: 'A'
   require: '?ngModel'
-  scope: editorData: '@'
+  scope:
+    editorData: '@'
+    text: '='
   link: (scope, element, attrs, ngModel) ->
     acePath = window.location.origin + "/assets/ace/"
     ace.config.set("basePath", acePath)
@@ -13,10 +15,12 @@ angular.module('Uranium').directive 'docEditor', [ '$timeout', ($timeout) ->
     editor.setTheme 'ace/theme/monokai'
     editor.getSession().setMode 'ace/mode/yaml'
     editor.setShowPrintMargin false
-    editor.setValue scope.editorData, -1
+    if scope.text?
+      scope.text = scope.text.toString()
+    editor.setValue scope.text || scope.editorData, -1
     editor.session.setUseWrapMode true
     editor.session.setWrapLimitRange 60
-    ngModel.$setViewValue {text: scope.editorData, object: editor}
+    ngModel.$setViewValue {text: editor.getValue(), object: editor}
     editor.on 'change', ->
       $timeout ->
         scope.$apply ->
