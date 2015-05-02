@@ -5,11 +5,7 @@ angular.module('Uranium').directive 'docEditor', [ '$timeout', ($timeout) ->
     editorData: '@'
     text: '='
   link: (scope, element, attrs, ngModel) ->
-    acePath = window.location.origin + "/assets/ace/"
-    ace.config.set("basePath", acePath)
-    ace.config.set("workerPath", acePath)
-    ace.config.set("modePath", acePath)
-    ace.config.set("themePath", acePath)
+    ace.config.set("basePath", window.location.origin + "/assets/ace/")
     editor = ace.edit(element[0])
     editor.setFontSize '16px'
     editor.setTheme 'ace/theme/monokai'
@@ -35,11 +31,7 @@ angular.module('Uranium').directive 'codeHighlight', ->
     codeLanguage: '@'
   link: (scope, element) ->
     code   = element[0].innerHTML
-    acePath = window.location.origin + "/assets/ace/"
-    ace.config.set("basePath", acePath)
-    ace.config.set("workerPath", acePath)
-    ace.config.set("modePath", acePath)
-    ace.config.set("themePath", acePath)
+    ace.config.set("basePath", window.location.origin + "/assets/ace/")
     editor = ace.edit(element[0])
     editor.setFontSize '16px'
     editor.setTheme 'ace/theme/monokai'
