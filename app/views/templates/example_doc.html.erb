@@ -12,10 +12,12 @@ paths:
     description: Return photos array.
     parameters:
       - name: page
+        in: query
         description: Current page number
         required: no
         type: integer
       - name: page_size
+        in: query
         description: Listing page size
         required: no
         type: integer
@@ -25,6 +27,7 @@ paths:
     description: Upload new photo.
     parameters:
       - name: photo
+        in: query
         description: Common photo info
         required: yes
         type: array_of_photo
