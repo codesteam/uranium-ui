@@ -21,6 +21,13 @@ paths:
         description: Listing page size
         required: no
         type: integer
+    responses:
+        200:
+          description: An array of photos
+          type: photo_type
+        default:
+          description: An array of photos
+          type: photo_type
   /photos/new:
     query: POST
     summary: Upload new photo.
@@ -31,6 +38,10 @@ paths:
         description: Common photo info
         required: yes
         type: array_of_photo
+    responses:
+        default:
+          description: An array of photos
+          type: photo_type
 definitions:
   photo:
     name: string
