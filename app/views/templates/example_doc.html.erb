@@ -23,10 +23,7 @@ paths:
     responses:
         200:
           description: An array of photos
-          type: photo_type
-        default:
-          description: An array of photos
-          type: photo_type
+          type: array_of_photo
   /photos/new:
     query: POST
     description: Upload new photo.
@@ -38,13 +35,16 @@ paths:
         type: array_of_photo
     responses:
         default:
-          description: An array of photos
-          type: photo_type
+          description: An array of results
+          type: array_of_error
 definitions:
   photo:
     name: string
     extension: string
-    demensions: photo_demensions
-  photo_demensions:
+    dimensions: photo_dimensions
+  photo_dimensions:
     width: integer
-    heigth: integer
+    height: integer
+  error:
+    code: integer
+    description: string

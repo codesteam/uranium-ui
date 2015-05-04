@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/codesteam/uranium
-  revision: eb1e27f1e181edbb2cf3e5869e3ff86af3702b3a
+  revision: 1d55125a9d32da2e94fd7922fda307c81ec98557
   specs:
     uranium (0.0.1)
       launchy (~> 0)
